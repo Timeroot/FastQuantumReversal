@@ -1,0 +1,6 @@
+# FastQuantumReversal
+Speedier quantum reversal, a-la arXiv:2103.03264
+
+Routing qubit data efficiently through a quantum computer using (usually) just nearest-neighbor interactions is a crucial part of many quantum algorithms. Bapat et al recently showed that data can be moved around *asymptotically faster than in just SWAPs*, by a factor of nearly three. This is an implementation of their ideas, with some experimentation of our own.
+
+Granted, Cirq is a highly gate-oriented model of quantum compilation, and so is not readily amenable to the time-independent Hamiltonian model that they describe. But, there are also gate-based descriptions, that are efficient. In that form, the advantage is not fewer gates (in fact, the gates are nearly three times as many), but the gates are significantly closer to the identity than otherwise. It has been observed to be true across many different hardware implementations that fidelity rates remain higher when operations are closer to the identity, for pulse-modulated tunable interactions. Put differently: the pulses only need to couple neighboring qubits together for 1/3rd as long, so 2-qubit errors are less likely. Accordingly, this should be expected to offer higher-fidelity routing strategies.
